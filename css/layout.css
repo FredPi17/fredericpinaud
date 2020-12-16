@@ -387,6 +387,9 @@
     -o-transition: all 0.3s ease 0s;
 }
 
+a .fab {
+    font-size: 30px !important;
+}
 .card-started .profile .social a:hover .ion, .card-started .profile .social a:hover .fab, .card-started .profile .social a:hover .fas {
     color: #78cc6d;
 }
