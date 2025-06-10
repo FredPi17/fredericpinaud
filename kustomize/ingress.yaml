@@ -1,0 +1,16 @@
+Kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: monsite
+spec:
+  rules:
+    - host: monsite.local
+      http:
+        paths:
+        - path: /api
+          pathType: Prefix
+          backend:
+            service:
+              name: monsite
+              port:
+                number: 80
