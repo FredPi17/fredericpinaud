@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: monsite
-        image: fredericpinaud:latest
+        image: monsite:latest
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
