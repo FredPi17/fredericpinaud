@@ -1,0 +1,6 @@
+auth:
+  username: coder
+  password: coder
+  database: coder
+persistence:
+  size: 10Gi

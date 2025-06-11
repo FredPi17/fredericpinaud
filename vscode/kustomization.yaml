@@ -8,6 +8,13 @@ namespace: default
 configMapGenerator:
   - name: vscode-values
     files:
-      - values.yaml=values.yaml
+      - coder.yaml
+  - name: db-values
+    files:
+      - postgresql.yaml
+secretGenerator:
+  - name: coder-db-url
+    literals:
+      - url="postgres://coder:coder@coder-db-postgresql.coder.svc.cluster.local:5432/coder?sslmode=disable"
 configurations:
   - kustomizeconfig.yaml

@@ -25,7 +25,17 @@ spec:
   interval: 1m
   url: https://helm.coder.com/v2
 
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://charts.bitnami.com/bitnami
 --- 
+
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -35,7 +45,7 @@ spec:
   interval: 10m
   chart:
     spec:
-      chart: vscode
+      chart: coder
       version: '2.22.1'
       sourceRef:
         kind: HelmRepository
@@ -46,5 +56,27 @@ spec:
     replicaCount: 1
   valuesFrom:
     - kind: ConfigMap
-      name: vscode-values
+      name: vscode-values-c7dbf996d9
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: coder-db
+  namespace: default
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: postgresql
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      interval: 10m
+  values:
+    replicaCount: 1
+  valuesFrom:
+    - kind: ConfigMap
+      name: postgresql-values-c7dbf996d9
 
