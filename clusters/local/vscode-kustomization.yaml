@@ -10,13 +10,12 @@ spec:
   prune: true
   retryInterval: 2m0s
   sourceRef:
-    kind: HelmRelease
-    name: vscode
+    kind: GitRepository
+    name: mon-site
   targetNamespace: default
   timeout: 3m0s
   wait: true
 ---
-
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
