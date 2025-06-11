@@ -8,6 +8,6 @@ namespace: default
 configMapGenerator:
   - name: vscode-values
     files:
-      - values.yaml=my-values.yaml
+      - values.yaml=values.yaml
 configurations:
   - kustomizeconfig.yaml
