@@ -1,35 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: monsite
+  name: mon-site
+  namespace: default
 spec:
-  minReadySeconds: 3
-  revisionHistoryLimit: 5
-  progressDeadlineSeconds: 60
-  strategy:
-    rollingUpdate:
-      maxUnavailable: 0
-    type: RollingUpdate
+  replicas: 1
   selector:
     matchLabels:
-      app: monsite
+      app: mon-site
   template:
     metadata:
       labels:
-        app: monsite
+        app: mon-site
     spec:
       containers:
-      - name: monsite
-        image: monsite:latest
-        imagePullPolicy: IfNotPresent
-        ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
-        resources:
-          limits:
-            cpu: 2000m
-            memory: 512Mi
-          requests:
-            cpu: 100m
-            memory: 64Mi
+        - name: mon-site
+          image: monsite:latest
+          ports:
+            - containerPort: 80
