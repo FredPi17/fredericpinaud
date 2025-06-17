@@ -20,4 +20,4 @@ spec:
               service:
                 name: mon-site
                 port:
-                  number: 443
+                  number: 80
