@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mon-site
-  namespace: default
+  namespace: test
 spec:
   replicas: 1
   selector:
