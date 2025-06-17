@@ -9,7 +9,7 @@ spec:
   tls:
     - hosts:
         - mon-site.local
-      secretName: selfsigned-cert-tls
+      secretName: mon-site-tls
   rules:
     - host: mon-site.local
       http:
