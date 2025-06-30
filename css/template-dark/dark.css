@@ -553,7 +553,7 @@ input[type="submit"]:hover {
 }
 
 .revs-item .text:before, .revs-item .text:after {
-    background: url(../images/quote_d.svg) no-repeat;
+    background: url(../../images/quote_d.svg) no-repeat;
     background-size: contain;
 }
 
