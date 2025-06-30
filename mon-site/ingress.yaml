@@ -5,13 +5,13 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "traefik"
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    cert-manager.io/cluster-issuer: my-ca-issuer
+    cert-manager.io/issuer: my-ca-issuer
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
-  tls:
-    - hosts:
-        - mon-site.local
-      secretName: mon-site-tls
+  #tls:
+  #  - hosts:
+  #      - mon-site.local
+  #    secretName: mon-site-tls
   rules:
     - host: mon-site.local
       http:

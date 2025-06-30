@@ -2,3 +2,6 @@
 clusters/
 README.md
 .gitignore
+monsite/
+vscode/
+.github/
