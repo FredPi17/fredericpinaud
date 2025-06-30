@@ -27,13 +27,13 @@ spec:
 
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+kind: OCIRepository
 metadata:
-  name: bitnami
+  name: postgresql
   namespace: flux-system
 spec:
   interval: 1m
-  url: https://charts.bitnami.com/bitnami
+  url: oci://registry-1.docker.io/bitnamicharts/postgresql
 --- 
 
 apiVersion: helm.toolkit.fluxcd.io/v2
@@ -66,17 +66,17 @@ metadata:
   namespace: default
 spec:
   interval: 10m
+  releaseName: coder-db
   chart:
     spec:
       chart: postgresql
       sourceRef:
         kind: HelmRepository
-        name: bitnami
-        namespace: flux-system
-      interval: 10m
-  values:
-    replicaCount: 1
+        name: postgresql
+        
+  chartRef:
+    kind: OCIRepository
+    name: postgresql
   valuesFrom:
     - kind: ConfigMap
-      name: postgresql-values-c7dbf996d9
-
+      name: postgresql-values-m7cd6f62bb
